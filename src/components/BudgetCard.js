@@ -1,16 +1,13 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-undef */
 import { Card } from "react-bootstrap";
 import { currencyFormatter } from "../utils";
 
-export default function BudgetCard() {
+export default function BudgetCard({amount, name, max}) {
   return (
     <Card>
         <Card.Body>
             <Card.Title>
                 <div>{name}</div>
-                <div>{amount} / {max}</div>
+                <div>{currencyFormatter.format(amount)} / {currencyFormatter.format(max)}</div>
             </Card.Title>
         </Card.Body>
     </Card>
