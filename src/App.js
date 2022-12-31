@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Button, Stack } from "react-bootstrap"
 import Container from "react-bootstrap/Container"
 import AddBudgetModal from "./components/AddBudgetModal"
@@ -7,6 +6,7 @@ import ViewExpensesModal from "./components/ViewExpensesModal"
 import BudgetCard from "./components/BudgetCard"
 import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard"
 import TotalBudgetCard from "./components/TotalBudgetCard"
+import { useState } from "react"
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "./contexts/BudgetsContext"
 
 function App() {
@@ -46,11 +46,11 @@ function App() {
             amount={amount}
             max={budget.max}
             onAddExpenseClick={() => openAddExpenseModal(budget.id)}
-            onViewExpenseClick={() => setViewExpensesModalBudgetId(budget.id)}
+            onViewExpensesClick={() => setViewExpensesModalBudgetId(budget.id)}
           />
       )
     })}
-    <UncategorizedBudgetCard onAddExpenseClick={openAddExpenseModal} onViewExpenseClick={() => setViewExpensesModalBudgetId(UNCATEGORIZED_BUDGET_ID)} />
+    <UncategorizedBudgetCard onAddExpenseClick={openAddExpenseModal} onViewExpensesClick={() => setViewExpensesModalBudgetId(UNCATEGORIZED_BUDGET_ID)} />
     <TotalBudgetCard />
     </div>
  </Container>
